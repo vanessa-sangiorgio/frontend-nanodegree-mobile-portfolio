@@ -1,4 +1,21 @@
-## Website Performance Optimization portfolio project
+##Project Speed Performance
+
+This project is a challange to improve a performance of a given site.
+
+#Instruction User
+
+Simply open index.html and enjoy the navigation
+
+##My change
+
+I've tried to improve the speed of this web site avoiding redundancy. So I've created new variables in main.js to include calculation or simply part of code. For example var phaseShift = document.body.scrollTop / 1250 and var phaseArray= []; too.
+
+I've minified a css file to lighter the site.
+
+I've inlined my font in a script at the bottom of index html.
+
+
+## UdacityInstruction Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
