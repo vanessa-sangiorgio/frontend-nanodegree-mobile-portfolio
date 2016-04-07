@@ -450,10 +450,12 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    //create new var randomPizzas to include all in only one variable
+    var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+    for (var i = 0; i < randomPizzas.length; i++) {
+      var dx = determineDx(randomPizzas[i], size);
+      var newwidth = (randomPizzas[i].offsetWidth + dx) + 'px';
+      randomPizzas[i].style.width = newwidth;
     }
   }
 
@@ -501,11 +503,18 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
+// Created new variables in order to run faster updatePositions(), avoinding redundacy
+  var phaseShift = document.body.scrollTop / 1250;
+  var phaseArray= [];
+  var stopLoop= items.length;
+  for (var j = 0; j < 5; j++) {
+    phaseArray[j] = Math.sin(phaseShift + (j % 5));
+  }
 
-  var items = document.querySelectorAll('.mover');
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  for (var i = 0; i< stopLoop; i++){
+    var phase= phaseArray[i%5];
+    var changeLeft = 100 * phase;
+    items[i].style.transform = "translateX(" + changeLeft + " px)";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -519,6 +528,8 @@ function updatePositions() {
 }
 
 // runs updatePositions on scroll
+var items = document.getElementsByClassName('mover');
+
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
