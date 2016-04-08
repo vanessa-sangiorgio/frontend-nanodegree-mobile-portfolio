@@ -9,10 +9,9 @@ Simply open index.html and enjoy the navigation
 ##My change
 
 I've tried to improve the speed of this web site avoiding redundancy. So I've created new variables in main.js to include calculation or simply part of code. For example var phaseShift = document.body.scrollTop / 1250 and var phaseArray= []; too.
-
-I've minified a css file to lighter the site.
-
 I've inlined my font in a script at the bottom of index html.
+I've also modified tag with document.getElementById() and function changePizzaSizes(size)
+I've create Css inline in index.html.
 
 
 ## UdacityInstruction Website Performance Optimization portfolio project
