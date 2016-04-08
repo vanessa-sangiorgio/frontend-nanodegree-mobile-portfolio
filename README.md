@@ -1,4 +1,4 @@
-##Project Speed Performance
+# Project Speed Performance
 
 This project is a challange to improve a performance of a given site.
 
@@ -6,7 +6,7 @@ This project is a challange to improve a performance of a given site.
 
 Simply open index.html and enjoy the navigation
 
-##My change
+## My change
 
 I've tried to improve the speed of this web site avoiding redundancy. So I've created new variables in main.js to include calculation or simply part of code. For example var phaseShift = document.body.scrollTop / 1250 and var phaseArray= []; too.
 I've inlined my font in a script at the bottom of index html.
